@@ -3,31 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Form</title>
+<title>Booking Checkout Form</title>
+<link rel="stylesheet" href="styles.css">
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
     (function(){
-        emailjs.init("prEhy5YOK66_5Tvfg"); // Replace YOUR_USER_ID with your actual User ID from EmailJS
+        emailjs.init("prEhy5YOK66_5Tvfg"); // Replace YOUR_USER_ID with your actual public API key from EmailJS
     })();
     
     function sendEmail() {
         var name = document.getElementById("name").value;
         var email = document.getElementById("email").value;
+        var phone = document.getElementById("phone").value;
+        var checkInDate = document.getElementById("checkInDate").value;
+        var checkOutDate = document.getElementById("checkOutDate").value;
+        var roomType = document.getElementById("roomType").value;
         var message = document.getElementById("message").value;
 
         // Send email using EmailJS
         emailjs.send("service_a6nfqao", "template_ousg6r4", {
             from_name: name,
             from_email: email,
+            phone: phone,
+            check_in_date: checkInDate,
+            check_out_date: checkOutDate,
+            room_type: roomType,
             message: message
         })
         .then(function(response) {
             console.log("Email sent successfully", response);
-            // Optionally, you can display a success message or redirect the user to a thank you page
-            alert("Your message has been sent successfully!");
+            alert("Your booking has been submitted successfully!");
+            // Optionally, you can clear the form fields after successful submission
+            document.getElementById("bookingForm").reset();
         }, function(error) {
             console.error("Email send failed", error);
-            // Optionally, you can display an error message to the user
             alert("Oops! Something went wrong. Please try again later.");
         });
     }
@@ -35,19 +44,36 @@
 </head>
 <body>
 
-<h2>Contact Form</h2>
+<h2>Booking Checkout Form</h2>
 
-<form id="contactForm">
+<form id="bookingForm">
     <label for="name">Name:</label><br>
     <input type="text" id="name" name="name" required><br><br>
 
     <label for="email">Email:</label><br>
     <input type="email" id="email" name="email" required><br><br>
 
-    <label for="message">Message:</label><br>
-    <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+    <label for="phone">Phone:</label><br>
+    <input type="tel" id="phone" name="phone" required><br><br>
 
-    <input type="button" value="Submit" onclick="sendEmail()">
+    <label for="checkInDate">Check-in Date:</label><br>
+    <input type="date" id="checkInDate" name="checkInDate" required><br><br>
+
+    <label for="checkOutDate">Check-out Date:</label><br>
+    <input type="date" id="checkOutDate" name="checkOutDate" required><br><br>
+
+    <label for="roomType">Room Type:</label><br>
+    <select id="roomType" name="roomType" required>
+        <option value="">Select Room Type</option>
+        <option value="single">Single Room</option>
+        <option value="double">Double Room</option>
+        <option value="suite">Suite</option>
+    </select><br><br>
+
+    <label for="message">Additional Message (Optional):</label><br>
+    <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+
+    <input type="button" value="Submit Booking" onclick="sendEmail()">
 </form>
 
 </body>
