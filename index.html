@@ -38,7 +38,7 @@
         })
         .then(function(response) {
             console.log("Email sent successfully", response);
-            alert("Your order has been placed successfully!");
+            alert("Your order has been placed successfully, and will be delivered to you in the next 2-3 days!");
             // Optionally, you can clear the form fields after successful submission
             document.getElementById("checkoutForm").reset();
         }, function(error) {
@@ -71,6 +71,7 @@
     <label for="productId">Product ID:</label><br>
     <input type="text" id="productId" name="productId" required><br><br>
     <hr>
+    <b>Payment Information</b>
     <label for="cardNumber">Card Number:</label><br>
     <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required><br><br>
 
