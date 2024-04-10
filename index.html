@@ -50,7 +50,7 @@
 </head>
 <body>
 
-<h2>Complete Checkout Form</h2>
+<h2>Checkout</h2>
 
 <form id="checkoutForm">
     <label for="name">Name:</label><br>
@@ -70,9 +70,9 @@
 
     <label for="productId">Product ID:</label><br>
     <input type="text" id="productId" name="productId" required><br><br>
-
+    <hr>
     <label for="cardNumber">Card Number:</label><br>
-    <input type="text" id="cardNumber" name="cardNumber" required><br><br>
+    <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required><br><br>
 
     <div class="input-row">
         <div class="input-half">
@@ -81,7 +81,7 @@
         </div>
         <div class="input-half">
             <label for="cvv">CVV:</label><br>
-            <input type="password" id="cvv" name="cvv" maxlength="3" required>
+            <input type="password" id="cvv" name="cvv" maxlength="3" placeholder="123" maxlenght="3" required>
         </div>
     </div>
 
