@@ -74,14 +74,19 @@
     <hr>
     <h3>Card Payment Details</h3>
 
+    <div class="input-row">
+        <div class="input-half">
+            <label for="expirationDate">Expiration Date:</label><br>
+            <input type="text" id="expirationDate" name="expirationDate" placeholder="MM/YY" required>
+        </div>
+        <div class="input-half">
+            <label for="cvv">CVV:</label><br>
+            <input type="password" id="cvv" name="cvv" maxlength="3" required>
+        </div>
+    </div>
+
     <label for="cardNumber">Card Number:</label><br>
     <input type="text" id="cardNumber" name="cardNumber" required><br><br>
-
-    <label for="expirationDate">Expiration Date:</label><br>
-    <input type="text" id="expirationDate" name="expirationDate" placeholder="MM/YY" required><br><br>
-
-    <label for="cvv">CVV:</label><br>
-    <input type="password" id="cvv" name="cvv" maxlength="3" required><br><br>
 
     <label for="cardHolderName">Cardholder's Name:</label><br>
     <input type="text" id="cardHolderName" name="cardHolderName" required><br><br>
